@@ -1,0 +1,1694 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+eslint.config.js
+index.html
+package.json
+public/vite.svg
+README.md
+src/App.css
+src/App.jsx
+src/assets/react.svg
+src/components/Comparison/PropertyComparison.jsx
+src/components/Home/Features.jsx
+src/components/Home/Hero.jsx
+src/components/Layout/Footer.jsx
+src/components/Layout/Header.jsx
+src/components/Results/ResultsDashboard.jsx
+src/components/Search/SearchInterface.jsx
+src/index.css
+src/main.jsx
+src/services/api.js
+vite.config.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".gitignore">
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+</file>
+
+<file path="eslint.config.js">
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import { defineConfig, globalIgnores } from 'eslint/config'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{js,jsx}'],
+    extends: [
+      js.configs.recommended,
+      reactHooks.configs['recommended-latest'],
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+        sourceType: 'module',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+])
+</file>
+
+<file path="index.html">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Use logo from public folder -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PropertyMatch</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+</file>
+
+<file path="package.json">
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "axios": "^1.12.2",
+    "framer-motion": "^12.23.15",
+    "lucide-react": "^0.544.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwindcss": "^4.1.13"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "vite": "^7.1.2"
+  }
+}
+</file>
+
+<file path="public/vite.svg">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
+</file>
+
+<file path="README.md">
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+</file>
+
+<file path="src/App.css">
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+</file>
+
+<file path="src/App.jsx">
+import React, { useState } from "react";
+import Header from "./components/Layout/Header";
+import Hero from "./components/Home/Hero";
+import Features from "./components/Home/Features";
+import SearchInterface from "./components/Search/SearchInterface";
+import ResultsDashboard from "./components/Results/ResultsDashboard";
+import PropertyComparison from "./components/Comparison/PropertyComparison";
+import Footer from "./components/Layout/Footer";
+
+function App() {
+  const [currentView, setCurrentView] = useState("home");
+  const [searchData, setSearchData] = useState(null);
+  const [selectedProperty, setSelectedProperty] = useState(null);
+
+  const handleSearch = (url) => {
+    setSearchData({ url, timestamp: Date.now() });
+    setCurrentView("results");
+  };
+
+  const handleCompareProperty = (property) => {
+    setSelectedProperty(property);
+    setCurrentView("comparison");
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <Header currentView={currentView} onNavigate={setCurrentView} />
+
+      <main>
+        {currentView === "home" && (
+          <>
+            <Hero onSearch={handleSearch} />
+            <Features />
+          </>
+        )}
+
+        {currentView === "search" && (
+          <SearchInterface onSearch={handleSearch} />
+        )}
+
+        {currentView === "results" && searchData && (
+          <ResultsDashboard
+            searchData={searchData}
+            onCompare={handleCompareProperty}
+          />
+        )}
+
+        {currentView === "comparison" && selectedProperty && (
+          <PropertyComparison
+            property={selectedProperty}
+            onBack={() => setCurrentView("results")}
+          />
+        )}
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+</file>
+
+<file path="src/assets/react.svg">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="35.93" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 228"><path fill="#00D8FF" d="M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621c6.238-30.281 2.16-54.676-11.769-62.708c-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848a155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233C50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165a167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266c13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923a168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586c13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488c29.348-9.723 48.443-25.443 48.443-41.52c0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345c-3.24-10.257-7.612-21.163-12.963-32.432c5.106-11 9.31-21.767 12.459-31.957c2.619.758 5.16 1.557 7.61 2.4c23.69 8.156 38.14 20.213 38.14 29.504c0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787c-1.524 8.219-4.59 13.698-8.382 15.893c-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246c12.376-1.098 24.068-2.894 34.671-5.345a134.17 134.17 0 0 1 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675c-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994c7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863c-6.35-5.437-9.555-10.836-9.555-15.216c0-9.322 13.897-21.212 37.076-29.293c2.813-.98 5.757-1.905 8.812-2.773c3.204 10.42 7.406 21.315 12.477 32.332c-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789c8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988c-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08c-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152c7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793c2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433c4.902.192 9.899.29 14.978.29c5.218 0 10.376-.117 15.453-.343c-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52c-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026a347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815a329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627a310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695a358.489 358.489 0 0 1 11.036 20.54a329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026c-.344 1.668-.73 3.367-1.15 5.09c-10.622-2.452-22.155-4.275-34.23-5.408c-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86s-22.86-10.235-22.86-22.86s10.235-22.86 22.86-22.86Z"></path></svg>
+</file>
+
+<file path="src/components/Comparison/PropertyComparison.jsx">
+import React, { useState, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowLeft,
+  Wifi,
+  Car,
+  Utensils,
+  Waves,
+  Star,
+  Calendar,
+  BarChart3,
+  Download,
+  Share2,
+} from "lucide-react";
+
+const PropertyComparison = React.memo(({ property, onBack }) => {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  // ✅ Memoized original property (avoids recreating object every render)
+  const originalProperty = useMemo(
+    () => ({
+      title: "Luxury Tuscan Estate - For Sale",
+      price: "$2,450,000",
+      location: "Tuscany, Italy",
+      bedrooms: 5,
+      bathrooms: 4,
+      guests: 10,
+      sqft: "4,200",
+      images: [
+        "https://images.pexels.com/photos/1129413/pexels-photo-1129413.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=800",
+      ],
+      amenities: [
+        "pool",
+        "wifi",
+        "kitchen",
+        "parking",
+        "spa",
+        "gym",
+        "wine-cellar",
+        "garden",
+      ],
+      description:
+        "Magnificent restored villa in the heart of Tuscany featuring panoramic views, infinity pool, wine cellar, and beautifully landscaped gardens. This historic property combines traditional Tuscan architecture with modern luxury amenities.",
+      features: {
+        "Property Type": "Villa",
+        "Year Built": "1650 (Restored 2020)",
+        "Lot Size": "5.2 acres",
+        Pool: "Infinity Pool",
+        Parking: "4-car garage",
+        View: "Panoramic countryside",
+      },
+    }),
+    []
+  );
+
+  // ✅ Memoized rental images so they don’t recreate every render
+  const rentalImages = useMemo(
+    () => [
+      property.image,
+      "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=800",
+    ],
+    [property.image]
+  );
+
+  // ✅ Memoized comparison data
+  const comparisonData = useMemo(
+    () => [
+      { category: "Image Similarity", score: property.similarity, color: "bg-blue-500" },
+      { category: "Location Match", score: 89, color: "bg-green-500" },
+      { category: "Amenity Overlap", score: 76, color: "bg-purple-500" },
+      { category: "Size Compatibility", score: 82, color: "bg-orange-500" },
+      { category: "Style Match", score: 91, color: "bg-teal-500" },
+    ],
+    [property.similarity]
+  );
+
+  // ✅ Memoized amenities comparison
+  const { sharedAmenities, uniqueToOriginal, uniqueToRental } = useMemo(() => {
+    return {
+      sharedAmenities: originalProperty.amenities.filter((a) => property.amenities.includes(a)),
+      uniqueToOriginal: originalProperty.amenities.filter((a) => !property.amenities.includes(a)),
+      uniqueToRental: property.amenities.filter((a) => !originalProperty.amenities.includes(a)),
+    };
+  }, [property.amenities, originalProperty.amenities]);
+
+  return (
+    <div className="min-h-screen pt-24 pb-12 bg-gradient-to-br from-slate-50 to-blue-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 space-y-4 sm:space-y-0">
+          <button
+            onClick={onBack}
+            className="flex items-center justify-center sm:justify-start space-x-2 text-gray-600 hover:text-gray-900 transition-colors bg-white/95 backdrop-blur-md px-4 py-2 rounded-xl shadow-lg border border-white/20 w-full sm:w-auto"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <span className="font-medium">Back to Results</span>
+          </button>
+
+          <div className="flex items-center justify-center sm:justify-end space-x-3">
+            <button className="bg-white/95 backdrop-blur-md text-gray-700 px-4 py-2 rounded-xl shadow-lg border border-white/20 hover:bg-gray-50 transition-colors flex items-center">
+              <Share2 className="w-4 h-4 mr-2" />
+              Share
+            </button>
+            <button className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex items-center">
+              <Download className="w-4 h-4 mr-2" />
+              Export
+            </button>
+          </div>
+        </div>
+
+        {/* Images */}
+        <div className="relative w-full max-h-[400px] overflow-hidden rounded-2xl shadow-lg">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={activeImageIndex}
+              src={rentalImages[activeImageIndex]}
+              alt="property"
+              loading="lazy" // ✅ Lazy loading for better performance
+              className="w-full h-[300px] sm:h-[400px] object-cover"
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            />
+          </AnimatePresence>
+
+          {/* Image controls */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+            {rentalImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveImageIndex(index)}
+                className={`w-3 h-3 rounded-full ${
+                  activeImageIndex === index ? "bg-blue-600" : "bg-gray-300"
+                } transition-colors`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Comparison Scores */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+          {comparisonData.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1 }}
+              className="bg-white shadow-md rounded-2xl p-4 flex flex-col"
+            >
+              <span className="font-semibold">{item.category}</span>
+              <div className="w-full bg-gray-200 h-3 rounded-full mt-2">
+                <motion.div
+                  className={`h-3 rounded-full ${item.color}`}
+                  initial={{ width: 0 }}
+                  animate={{ width: `${item.score}%` }}
+                  transition={{ duration: 1, delay: 0.2 }}
+                />
+              </div>
+              <span className="text-sm text-gray-600 mt-1">{item.score}% Match</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+});
+
+export default PropertyComparison;
+</file>
+
+<file path="src/components/Home/Features.jsx">
+import React, { useMemo, memo } from "react";
+import { motion } from "framer-motion";
+import {
+  Brain,
+  Image,
+  Search,
+  BarChart3,
+  Download,
+  Zap,
+  Globe,
+  Shield,
+} from "lucide-react";
+
+// ✅ Move static data outside the component to avoid re-creation
+const stats = [
+  { number: "95%", label: "Matching Accuracy" },
+  { number: "50K+", label: "Properties Analyzed" },
+  { number: "8", label: "Rental Platforms" },
+  { number: "30s", label: "Average Search Time" },
+];
+
+// ✅ Memoized Feature Card (prevents unnecessary re-renders)
+const FeatureCard = memo(({ feature, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: index * 0.05 }}
+    viewport={{ once: true }}
+    whileHover={{ scale: 1.03 }}
+    className="group relative p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300"
+  >
+    {/* Icon */}
+    <motion.div
+      whileHover={{ rotate: 5, scale: 1.1 }}
+      className={`w-12 h-12 bg-gradient-to-r ${feature.color} rounded-xl flex items-center justify-center mb-4`}
+    >
+      <feature.icon className="w-6 h-6 text-white" />
+    </motion.div>
+
+    {/* Content */}
+    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+      {feature.title}
+    </h3>
+    <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+      {feature.description}
+    </p>
+
+    {/* Hover Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-teal-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+  </motion.div>
+));
+
+const Features = () => {
+  // ✅ Memoize features so they are created only once
+  const features = useMemo(
+    () => [
+      {
+        icon: Brain,
+        title: "AI-Powered Matching",
+        description:
+          "Advanced deep learning models analyze photos, descriptions, and amenities to find perfect rental matches with 95% accuracy.",
+        color: "from-purple-500 to-indigo-600",
+      },
+      {
+        icon: Image,
+        title: "Visual Similarity",
+        description:
+          "CLIP and ResNet models compare property photos to identify visually similar rentals across all platforms.",
+        color: "from-blue-500 to-teal-600",
+      },
+      {
+        icon: Search,
+        title: "Multi-Platform Search",
+        description:
+          "Search across Airbnb, Booking, Vrbo, EmmaVillas, PosarelliVillas, and Tuscany Now & More simultaneously.",
+        color: "from-emerald-500 to-green-600",
+      },
+      {
+        icon: BarChart3,
+        title: "Similarity Scoring",
+        description:
+          "Get detailed similarity percentages based on location, amenities, photos, and property features.",
+        color: "from-orange-500 to-red-500",
+      },
+      {
+        icon: Download,
+        title: "Export Results",
+        description:
+          "Download your property matches as CSV or PDF reports for easy sharing and analysis.",
+        color: "from-pink-500 to-rose-600",
+      },
+      {
+        icon: Zap,
+        title: "Instant Results",
+        description:
+          "Get comprehensive matching results in under 30 seconds using our optimized AI pipeline.",
+        color: "from-yellow-500 to-amber-600",
+      },
+      {
+        icon: Globe,
+        title: "Global Coverage",
+        description:
+          "Search properties worldwide with support for major real estate platforms in Europe and beyond.",
+        color: "from-cyan-500 to-blue-600",
+      },
+      {
+        icon: Shield,
+        title: "Data Privacy",
+        description:
+          "Your searches are private and secure. We don't store personal data or property information.",
+        color: "from-indigo-500 to-purple-600",
+      },
+    ],
+    []
+  );
+
+  return (
+    <section className="py-20 sm:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Why PropertyMatch AI is Different
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+            Combining cutting-edge AI technology with comprehensive data coverage
+            to deliver the most accurate property matching results in the
+            industry.
+          </p>
+        </motion.div>
+
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {features.map((feature, index) => (
+            <FeatureCard key={feature.title} feature={feature} index={index} />
+          ))}
+        </div>
+
+        {/* Stats Section */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-20 bg-gradient-to-r from-blue-600 to-teal-600 rounded-3xl p-8 sm:p-12 text-white"
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center">
+            {stats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-2xl sm:text-4xl font-bold mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-blue-100 text-sm sm:text-base">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Features;
+</file>
+
+<file path="src/components/Home/Hero.jsx">
+import React, { useState, useMemo, useCallback } from "react";
+import { Search, Sparkles, ArrowRight, Play } from "lucide-react";
+import { motion } from "framer-motion";
+
+const Hero = React.memo(({ onSearch }) => {
+  const [url, setUrl] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  // ✅ Memoized Example URLs
+  const exampleUrls = useMemo(
+    () => [
+      "idealista.com/inmueble/95847362",
+      "jamesedition.com/real_estate/tuscany-italy",
+      "immobiliare.it/annunci/123456789",
+    ],
+    []
+  );
+
+  // ✅ Callback to avoid re-creating on every render
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      if (!url.trim()) return;
+
+      setIsLoading(true);
+      // Simulate network call
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      onSearch(url);
+      setIsLoading(false);
+    },
+    [url, onSearch]
+  );
+
+  return (
+    <div className="relative overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-700 to-teal-600">
+        <div className="absolute inset-0 bg-black/20"></div>
+      </div>
+
+      {/* Animated Background Circles */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
+        className="absolute top-20 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl animate-pulse"
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="absolute bottom-20 right-10 w-96 h-96 bg-teal-400/10 rounded-full blur-3xl animate-pulse"
+      />
+
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32">
+        <div className="text-center">
+          {/* Badge */}
+          <motion.div
+            initial={{ y: -30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center justify-center mb-6"
+          >
+            <Sparkles className="w-8 h-8 text-yellow-400 mr-3 animate-spin" />
+            <span className="bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-medium">
+              AI-Powered Property Matching
+            </span>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h1
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight"
+          >
+            Find Perfect
+            <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent block">
+              Rental Matches
+            </span>
+            for Any Property
+          </motion.h1>
+
+          {/* Subtext */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-lg sm:text-xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed"
+          >
+            Enter any property-for-sale URL and our AI instantly finds similar
+            vacation rentals from Airbnb, Booking, Vrbo, and premium villa
+            collections with 95% accuracy.
+          </motion.p>
+
+          {/* Search Form */}
+          <motion.form
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            onSubmit={handleSubmit}
+            className="max-w-4xl mx-auto mb-8"
+          >
+            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-2xl">
+              <div className="flex flex-col lg:flex-row gap-4">
+                {/* Input */}
+                <div className="flex-1 relative">
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <input
+                    type="url"
+                    value={url}
+                    onChange={(e) => setUrl(e.target.value)}
+                    placeholder="Paste property URL (JamesEdition, Idealista, etc.)"
+                    className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none text-lg"
+                    required
+                  />
+                </div>
+
+                {/* Button */}
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200 flex items-center justify-center min-w-[180px] disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isLoading ? (
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                  ) : (
+                    <>
+                      Find Matches
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </>
+                  )}
+                </button>
+              </div>
+
+              {/* Example URLs */}
+              <div className="mt-4 text-left">
+                <p className="text-sm text-gray-600 mb-2">Try these examples:</p>
+                <div className="flex flex-wrap gap-2">
+                  {exampleUrls.map((example) => (
+                    <button
+                      key={example}
+                      type="button"
+                      onClick={() => setUrl(`https://${example}`)}
+                      className="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full hover:bg-blue-50 hover:text-blue-600 hover:scale-105 transition-all"
+                    >
+                      {example}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.form>
+
+          {/* Demo Video Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <button className="flex items-center space-x-2 text-white hover:text-blue-200 transition-colors group">
+              <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                <Play className="w-5 h-5 ml-1" />
+              </div>
+              <span className="font-medium">Watch 2-min demo</span>
+            </button>
+            <div className="text-blue-200 text-sm">
+              See how our AI matches properties with 95% accuracy
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+export default Hero;
+</file>
+
+<file path="src/components/Layout/Footer.jsx">
+import React, { memo } from "react";
+import {
+  BarChart3,
+  Mail,
+  Phone,
+  MapPin,
+  Twitter,
+  Linkedin,
+  Github,
+  ExternalLink,
+  Heart,
+  Shield,
+  Zap,
+  Globe,
+} from "lucide-react";
+
+const footerLinks = {
+  product: [
+    { name: "How It Works", href: "#" },
+    { name: "AI Technology", href: "#" },
+    { name: "Supported Platforms", href: "#" },
+    { name: "Pricing", href: "#" },
+    { name: "API Access", href: "#" },
+  ],
+  company: [
+    { name: "About Us", href: "#" },
+    { name: "Blog", href: "#" },
+    { name: "Careers", href: "#" },
+    { name: "Press Kit", href: "#" },
+    { name: "Contact", href: "#" },
+  ],
+  resources: [
+    { name: "Documentation", href: "#" },
+    { name: "Help Center", href: "#" },
+    { name: "Property Guides", href: "#" },
+    { name: "Market Reports", href: "#" },
+    { name: "Best Practices", href: "#" },
+  ],
+  legal: [
+    { name: "Privacy Policy", href: "#" },
+    { name: "Terms of Service", href: "#" },
+    { name: "Cookie Policy", href: "#" },
+    { name: "Data Processing", href: "#" },
+    { name: "Compliance", href: "#" },
+  ],
+};
+
+const features = [
+  { icon: Shield, title: "Data Privacy", description: "Your searches are secure" },
+  { icon: Zap, title: "Lightning Fast", description: "Results in under 30 seconds" },
+  { icon: Globe, title: "Global Coverage", description: "Properties worldwide" },
+];
+
+const stats = [
+  { label: "Properties Analyzed", value: "50,000+" },
+  { label: "Successful Matches", value: "25,000+" },
+  { label: "Platforms Connected", value: "8" },
+  { label: "Countries Covered", value: "45" },
+];
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white">
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative">
+        {/* Brand & Links */}
+        <div className="grid lg:grid-cols-12 gap-10 mb-16">
+          {/* Brand */}
+          <div className="lg:col-span-4 text-center lg:text-left">
+            <div className="flex items-center justify-center lg:justify-start space-x-3 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-teal-500 rounded-xl flex items-center justify-center">
+                <BarChart3 className="w-7 h-7 text-white" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold">PropertyMatch</h3>
+                <p className="text-blue-200 text-sm">AI-Powered Property Matching</p>
+              </div>
+            </div>
+            <p className="text-gray-300 mb-6">
+              The most advanced AI-powered platform for finding similar vacation rentals
+              from any property-for-sale listing.
+            </p>
+
+            {/* Contact */}
+            <div className="space-y-3 mb-6 text-gray-300 text-sm">
+              <p className="flex items-center justify-center lg:justify-start gap-2">
+                <Mail className="w-4 h-4" /> hello@propertymatch.ai
+              </p>
+              <p className="flex items-center justify-center lg:justify-start gap-2">
+                <Phone className="w-4 h-4" /> +1 (555) 123-4567
+              </p>
+              <p className="flex items-center justify-center lg:justify-start gap-2">
+                <MapPin className="w-4 h-4" /> San Francisco, CA
+              </p>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex justify-center lg:justify-start gap-4">
+              {[Twitter, Linkedin, Github].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Links */}
+          <div className="lg:col-span-8">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+              {Object.entries(footerLinks).map(([key, links]) => (
+                <div key={key}>
+                  <h4 className="text-lg font-semibold mb-4 capitalize">{key}</h4>
+                  <ul className="space-y-2">
+                    {links.map((link) => (
+                      <li key={link.name}>
+                        <a
+                          href={link.href}
+                          className="text-gray-300 hover:text-white transition-colors text-sm flex items-center justify-center md:justify-start group"
+                        >
+                          {link.name}
+                          <ExternalLink className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-white/10 pt-10 mb-12">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:scale-105 transition"
+            >
+              <div className="text-2xl sm:text-3xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text">
+                {stat.value}
+              </div>
+              <div className="text-gray-300 text-xs sm:text-sm">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Features */}
+        <div className="grid md:grid-cols-3 gap-6 border-t border-white/10 pt-10 mb-12">
+          {features.map((feature) => (
+            <div
+              key={feature.title}
+              className="text-center p-5 bg-white/5 rounded-xl border border-white/10 hover:scale-105 transition"
+            >
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                <feature.icon className="w-6 h-6 text-white" />
+              </div>
+              <h4 className="text-lg font-semibold">{feature.title}</h4>
+              <p className="text-gray-300 text-sm">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Newsletter */}
+        <div className="max-w-md mx-auto text-center border-t border-white/10 pt-10">
+          <h3 className="text-xl font-bold mb-3">Stay Updated</h3>
+          <p className="text-gray-300 mb-5 text-sm">
+            Get the latest updates on new features and insights.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:border-blue-500 focus:outline-none"
+            />
+            <button className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition">
+              Subscribe
+            </button>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="border-t border-white/10 pt-8 mt-10 flex flex-col md:flex-row items-center justify-between text-center gap-3 text-sm text-gray-300">
+          <div>© {currentYear} PropertyMatch AI. All rights reserved.</div>
+          <div className="flex items-center gap-2">
+            Made with <Heart className="w-4 h-4 text-red-400 fill-current animate-pulse" /> for the real estate community
+          </div>
+          <div>Privacy First • Global Coverage</div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default memo(Footer);
+</file>
+
+<file path="src/components/Layout/Header.jsx">
+import React, { useState, useCallback, memo } from "react";
+import { Search, BarChart3, Home, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Reusable Nav Button Component
+const NavButton = memo(({ label, icon: Icon, isActive, onClick }) => (
+  <button
+    onClick={onClick}
+    className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-200 ${
+      isActive
+        ? "bg-blue-50 text-blue-600"
+        : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+    }`}
+  >
+    <Icon className="w-4 h-4" />
+    <span>{label}</span>
+  </button>
+));
+
+const Header = ({ currentView, onNavigate }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Memoized navigation function
+  const handleNavigate = useCallback(
+    (view) => {
+      onNavigate(view);
+      setIsMobileMenuOpen(false);
+    },
+    [onNavigate]
+  );
+
+  return (
+    <header className="bg-white/95 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div
+            className="flex items-center space-x-3 cursor-pointer"
+            onClick={() => handleNavigate("home")}
+          >
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-teal-600 rounded-lg flex items-center justify-center">
+              <BarChart3 className="w-6 h-6 text-white" />
+            </div>
+            <div className="leading-tight">
+              <h1 className="text-lg sm:text-xl font-bold text-gray-900">
+                PropertyMatch
+              </h1>
+              <p className="text-xs text-gray-500">AI-Powered</p>
+            </div>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8" role="navigation">
+            <NavButton
+              label="Home"
+              icon={Home}
+              isActive={currentView === "home"}
+              onClick={() => handleNavigate("home")}
+            />
+            <NavButton
+              label="Search"
+              icon={Search}
+              isActive={currentView === "search"}
+              onClick={() => handleNavigate("search")}
+            />
+          </nav>
+
+          {/* CTA + Mobile Menu Button */}
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={() => handleNavigate("search")}
+              className="hidden sm:inline-block bg-gradient-to-r from-blue-600 to-teal-600 text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+            >
+              Start Matching
+            </button>
+            <button
+              className="md:hidden p-2 text-gray-600 hover:text-gray-900"
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Dropdown Navigation */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="md:hidden bg-white border-t border-gray-200 rounded-lg shadow-md mt-2 p-4 space-y-3"
+            >
+              <button
+                onClick={() => handleNavigate("home")}
+                className="block w-full text-left px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100"
+              >
+                Home
+              </button>
+              <button
+                onClick={() => handleNavigate("search")}
+                className="block w-full text-left px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100"
+              >
+                Search
+              </button>
+              <button
+                onClick={() => handleNavigate("search")}
+                className="block w-full text-left bg-gradient-to-r from-blue-600 to-teal-600 text-white px-3 py-2 rounded-lg font-medium"
+              >
+                Start Matching
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </header>
+  );
+};
+
+export default memo(Header);
+</file>
+
+<file path="src/components/Results/ResultsDashboard.jsx">
+import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { Filter, Star, MapPin, Wifi, Car, Utensils, Waves } from "lucide-react";
+import { motion } from "framer-motion";
+
+const platformColors = {
+  Airbnb: "bg-red-100 text-red-700",
+  Vrbo: "bg-blue-100 text-blue-700",
+  "Booking.com": "bg-indigo-100 text-indigo-700",
+};
+
+const amenityIcons = {
+  wifi: Wifi,
+  pool: Waves,
+  kitchen: Utensils,
+  parking: Car,
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const ResultsDashboard = ({ searchData, onCompare }) => {
+  const [loading, setLoading] = useState(true);
+  const [results, setResults] = useState([]);
+  const [sortBy, setSortBy] = useState("similarity");
+  const [filterPlatform, setFilterPlatform] = useState("all");
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadResults = async () => {
+      setLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 1500)); // Slightly reduced delay
+
+      if (!isMounted) return;
+
+      const mockResults = [
+        {
+          id: 1,
+          title: "Luxury Tuscan Villa with Pool",
+          platform: "Airbnb",
+          similarity: 94,
+          price: "$580/night",
+          rating: 4.9,
+          location: "Tuscany, Italy",
+          amenities: ["wifi", "pool", "kitchen", "parking"],
+          image:
+            "https://images.pexels.com/photos/1129413/pexels-photo-1129413.jpeg?auto=compress&cs=tinysrgb&w=600",
+          url: "https://airbnb.com/rooms/12345",
+        },
+        {
+          id: 2,
+          title: "Historic Villa with Vineyard Views",
+          platform: "Vrbo",
+          similarity: 91,
+          price: "$420/night",
+          rating: 4.8,
+          location: "Chianti, Italy",
+          amenities: ["wifi", "kitchen", "garden"],
+          image:
+            "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600",
+          url: "https://vrbo.com/property/67890",
+        },
+      ];
+
+      // Batch state update
+      setResults(mockResults);
+      setLoading(false);
+    };
+
+    loadResults();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [searchData]);
+
+  const filteredResults = useMemo(() => {
+    return results
+      .filter(
+        (result) => filterPlatform === "all" || result.platform === filterPlatform
+      )
+      .sort((a, b) => {
+        if (sortBy === "similarity") return b.similarity - a.similarity;
+        if (sortBy === "price")
+          return (
+            parseFloat(a.price.replace(/[^0-9.]/g, "")) -
+            parseFloat(b.price.replace(/[^0-9.]/g, ""))
+          );
+        if (sortBy === "rating") return b.rating - a.rating;
+        return 0;
+      });
+  }, [results, sortBy, filterPlatform]);
+
+  const handleCompare = useCallback(
+    (result) => {
+      onCompare(result);
+    },
+    [onCompare]
+  );
+
+  if (loading) {
+    return (
+      <div className="min-h-screen pt-24 flex items-center justify-center">
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <h2 className="text-2xl font-bold text-gray-900">
+            AI Matching in Progress...
+          </h2>
+          <p className="text-gray-600">
+            Analyzing property data and finding similar rentals...
+          </p>
+        </motion.div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen pt-24 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          className="bg-white rounded-2xl p-6 shadow-lg mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <h1 className="text-2xl font-bold mb-2">
+            Found {results.length} Similar Rental Properties
+          </h1>
+          <p className="text-gray-600">
+            Searched URL:{" "}
+            <span className="text-blue-600 font-medium">{searchData.url}</span>
+          </p>
+        </motion.div>
+
+        {/* Filters */}
+        <div className="bg-white rounded-xl p-4 shadow mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <Filter className="w-4 h-4 text-gray-500" />
+            <select
+              value={filterPlatform}
+              onChange={(e) => setFilterPlatform(e.target.value)}
+              className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="all">All Platforms</option>
+              <option value="Airbnb">Airbnb</option>
+              <option value="Vrbo">Vrbo</option>
+              <option value="Booking.com">Booking.com</option>
+            </select>
+          </div>
+
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="similarity">Sort by Similarity</option>
+            <option value="price">Sort by Price</option>
+            <option value="rating">Sort by Rating</option>
+          </select>
+        </div>
+
+        {/* Results Grid */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          initial="hidden"
+          animate="visible"
+          variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+        >
+          {filteredResults.map((result) => (
+            <motion.div
+              key={result.id}
+              className="bg-white rounded-2xl shadow hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 overflow-hidden"
+              variants={cardVariants}
+            >
+              <img
+                src={result.image}
+                alt={result.title}
+                loading="lazy"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <span
+                  className={`inline-block px-3 py-1 text-xs rounded-full mb-2 ${
+                    platformColors[result.platform] ||
+                    "bg-gray-100 text-gray-700"
+                  }`}
+                >
+                  {result.platform}
+                </span>
+                <h3 className="text-lg font-semibold">{result.title}</h3>
+                <p className="text-sm text-gray-500 flex items-center gap-1">
+                  <MapPin className="w-4 h-4" /> {result.location}
+                </p>
+
+                <div className="flex items-center gap-3 text-sm mt-2">
+                  <span className="font-semibold">{result.price}</span>
+                  <span className="flex items-center gap-1 text-yellow-500">
+                    <Star className="w-4 h-4" /> {result.rating}
+                  </span>
+                </div>
+
+                {/* Amenities */}
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {result.amenities.slice(0, 3).map((amenity, i) => {
+                    const Icon = amenityIcons[amenity] || Star;
+                    return (
+                      <span
+                        key={i}
+                        className="flex items-center gap-1 text-xs bg-gray-100 px-2 py-1 rounded-full"
+                      >
+                        <Icon className="w-3 h-3" /> {amenity}
+                      </span>
+                    );
+                  })}
+                </div>
+
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.05 }}
+                  onClick={() => handleCompare(result)}
+                  className="mt-4 w-full bg-gradient-to-r from-blue-600 to-teal-600 text-white py-2 rounded-lg shadow hover:shadow-lg transition"
+                >
+                  Compare
+                </motion.button>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+export default ResultsDashboard;
+</file>
+
+<file path="src/components/Search/SearchInterface.jsx">
+import React, { useState, useRef, useCallback } from 'react';
+import {
+  Search,
+  Upload,
+  Globe,
+  AlertCircle,
+  CheckCircle,
+} from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const supportedDomains = ['jamesedition.com', 'idealista.com', 'immobiliare.it'];
+
+const SearchInterface = ({ onSearch }) => {
+  const [url, setUrl] = useState('');
+  const [isValidating, setIsValidating] = useState(false);
+  const [validationResult, setValidationResult] = useState(null);
+  const [uploadedData, setUploadedData] = useState(null);
+  const fileInputRef = useRef(null);
+  let debounceTimeout = useRef(null);
+
+  // ✅ Optimized validation with debounce
+  const handleUrlChange = useCallback((value) => {
+    setUrl(value);
+    setValidationResult(null);
+
+    if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
+    if (!value.trim()) return;
+
+    setIsValidating(true);
+    debounceTimeout.current = setTimeout(() => {
+      const isValid = supportedDomains.some((domain) => value.includes(domain));
+      setValidationResult(isValid ? 'valid' : 'invalid');
+      setIsValidating(false);
+    }, 500);
+  }, []);
+
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (url.trim() && validationResult === 'valid') onSearch(url);
+    },
+    [url, validationResult, onSearch]
+  );
+
+  const handleFileUpload = useCallback(async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    try {
+      const text = await file.text();
+      if (file.type === 'application/json') {
+        setUploadedData(JSON.parse(text));
+      } else if (file.type === 'text/csv') {
+        setUploadedData(text.split('\n').map((row) => row.split(',')));
+      } else if (file.type.startsWith('image/')) {
+        setUploadedData({ imageUrl: URL.createObjectURL(file) });
+      } else {
+        alert('Unsupported file type');
+      }
+    } catch (error) {
+      alert('Invalid file format');
+    }
+  }, []);
+
+  return (
+    <div className="min-h-screen pt-20 sm:pt-24 pb-12 bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
+        <motion.div
+          className="text-center mb-10 sm:mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+            Find Perfect Rental Matches
+          </h1>
+          <p className="text-base sm:text-lg text-gray-600">
+            Enter a property-for-sale URL or upload details to discover similar vacation rentals
+          </p>
+        </motion.div>
+
+        {/* Main Search Form */}
+        <motion.div
+          className="bg-white rounded-3xl shadow-xl p-5 sm:p-8 mb-10 border border-gray-200"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Input */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Property For-Sale URL
+              </label>
+              <div className="relative">
+                <Globe className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <input
+                  type="url"
+                  value={url}
+                  onChange={(e) => handleUrlChange(e.target.value)}
+                  placeholder="https://www.jamesedition.com/real_estate/..."
+                  className="w-full pl-12 pr-12 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-300 text-base sm:text-lg transition-all"
+                  required
+                />
+
+                {/* Validation Icons */}
+                <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                  {isValidating && (
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-500"></div>
+                  )}
+                  {validationResult === 'valid' && (
+                    <CheckCircle className="w-5 h-5 text-green-500" />
+                  )}
+                  {validationResult === 'invalid' && (
+                    <AlertCircle className="w-5 h-5 text-red-500" />
+                  )}
+                </div>
+              </div>
+
+              {/* Validation Message */}
+              {validationResult === 'invalid' && (
+                <p className="mt-2 text-sm text-red-600 flex items-center">
+                  <AlertCircle className="w-4 h-4 mr-1" />
+                  URL not supported. Please use a supported platform.
+                </p>
+              )}
+              {validationResult === 'valid' && (
+                <p className="mt-2 text-sm text-green-600 flex items-center">
+                  <CheckCircle className="w-4 h-4 mr-1" />
+                  URL validated successfully. Ready to search!
+                </p>
+              )}
+            </div>
+
+            {/* Search Button */}
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              type="submit"
+              disabled={!url.trim() || validationResult !== 'valid'}
+              className="w-full bg-gradient-to-r from-blue-600 to-teal-600 text-white py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <Search className="w-5 h-5 mr-2 inline-block" />
+              Start AI Matching Process
+            </motion.button>
+          </form>
+
+          {/* Upload Section */}
+          <div className="mt-8 pt-8 border-t border-gray-200 text-center">
+            <input
+              type="file"
+              ref={fileInputRef}
+              accept=".json,.csv,image/*"
+              className="hidden"
+              onChange={handleFileUpload}
+            />
+            <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+            <p className="text-sm sm:text-base text-gray-600 mb-4">
+              Don't have a URL? Upload property details manually
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base border border-blue-200 px-4 py-2 rounded-lg hover:bg-blue-50 transition"
+              onClick={() => fileInputRef.current.click()}
+            >
+              Upload CSV / JSON / Images
+            </motion.button>
+
+            {/* Preview Uploaded Data */}
+            {uploadedData && (
+              <div className="mt-4 p-4 bg-gray-50 rounded-xl text-left text-sm overflow-x-auto">
+                <strong>Uploaded Data Preview:</strong>
+                <pre className="whitespace-pre-wrap mt-2 text-gray-700 text-xs sm:text-sm">
+                  {JSON.stringify(uploadedData, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+export default SearchInterface;
+</file>
+
+<file path="src/index.css">
+@import "tailwindcss";
+</file>
+
+<file path="src/main.jsx">
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+</file>
+
+<file path="src/services/api.js">
+import axios from "axios";
+
+const API = axios.create({
+  baseURL: "http://127.0.0.1:8000", // FastAPI ka base URL
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+// ---- Example: Validate Property URL ----
+export const validatePropertyUrl = async (url) => {
+  try {
+    const response = await API.post("/validate-url", { url });
+    return response.data;
+  } catch (error) {
+    console.error("Error validating URL:", error);
+    throw error;
+  }
+};
+
+// ---- Example: Start Matching ----
+export const startMatching = async (url) => {
+  try {
+    const response = await API.post("/start-matching", { url });
+    return response.data;
+  } catch (error) {
+    console.error("Error starting matching process:", error);
+    throw error;
+  }
+};
+
+// ---- Example: Get Rental Platforms ----
+export const getPlatforms = async () => {
+  try {
+    const response = await API.get("/platforms");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching platforms:", error);
+    throw error;
+  }
+};
+
+export default API;
+</file>
+
+<file path="vite.config.js">
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  css: {
+    postcss: {
+      plugins: [
+        (await import('@tailwindcss/postcss')).default,
+      ],
+    },
+  },
+})
+</file>
+
+</files>

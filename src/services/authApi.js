@@ -1,8 +1,12 @@
 // src/services/authApi.js
 import axios from "axios";
 
+// Use environment variable for API URL, fallback to localhost for development
+// Note: If auth endpoints are on the same backend, use the same URL
+const AUTH_API_BASE_URL = import.meta.env.VITE_AUTH_API_URL || import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+
 const API = axios.create({
-  baseURL: "http://127.0.0.1:8000", // FastAPI Auth Backend URL
+  baseURL: AUTH_API_BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },
